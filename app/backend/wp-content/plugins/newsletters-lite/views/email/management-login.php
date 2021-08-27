@@ -1,0 +1,3 @@
+<p><?php _e('Please authenticate your subscriber account by clicking the link below.', 'wp-mailinglist'); ?></p>
+<p><a href="<?php echo $Html -> retainquery('method=loginauth&email=' . $email . '&subscriberauth=' . $subscriberauth, $this -> get_managementpost(true)); ?>"><?php _e('Authenticate Email Address Now', 'wp-mailinglist'); ?></a></p>
+<p><?php _e('Once you authenticate, you can manage your subscriptions and additional subscriber information.', 'wp-mailinglist'); ?></p>
