@@ -1,1 +1,0 @@
-<?php echo wpautop(__($template -> content)); ?>

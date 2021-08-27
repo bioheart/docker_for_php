@@ -1,1 +1,0 @@
-<!-- Newsletter plugin footer file -->
