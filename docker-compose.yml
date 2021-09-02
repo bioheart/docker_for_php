@@ -13,47 +13,47 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    depends_on:
-      - php
+    # depends_on:
+    #   - php
     networks: 
       - app-network
-    links:
-      - php
-      - phpmyadmin
-      - mysql
+  #   links:
+  #     - php
+  #     - phpmyadmin
+  #     - mysql
 
-  php:
-    container_name: php
-    build: ./docker/php
-    image: php-fpm
-    restart: always
-    volumes:
-      - "./app:/var/www/html"
-    networks:
-      - app-network
+  # php:
+  #   container_name: php
+  #   build: ./docker/php
+  #   image: php-fpm
+  #   restart: always
+  #   volumes:
+  #     - "./app:/var/www/html"
+  #   networks:
+  #     - app-network
 
-  mysql:
-    platform: linux/x86_64
-    container_name: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: root
-    image: mysql:5.7
-    restart: always
-    ports: 
-      - "3306:3306"
-  phpmyadmin:
-    container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin
-    depends_on:
-      - mysql
-    restart: always
-    ports:
-      - "8080:80"
-    environment:
-      - PMA_ARBITRARY=1
-      - UPLOAD_LIMIT=2048MB
-      - PMA_HOST=mysql
+  # mysql:
+  #   platform: linux/x86_64
+  #   container_name: mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: root
+  #   image: mysql:5.7
+  #   restart: always
+  #   ports: 
+  #     - "3306:3306"
+  # phpmyadmin:
+  #   container_name: phpmyadmin
+  #   image: phpmyadmin/phpmyadmin
+  #   depends_on:
+  #     - mysql
+  #   restart: always
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     - PMA_ARBITRARY=1
+  #     - UPLOAD_LIMIT=2048MB
+  #     - PMA_HOST=mysql
 
 networks: 
   app-network:
